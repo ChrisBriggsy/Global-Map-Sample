@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet mobile example</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="leaflet.css" />
+
+	<script src="leaflet.js"></script>	
+	<script src="L.Terminator.js"></script>
+	
+	<script src="moment.js"></script>
+	<script src="moment-timezone.js"></script>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+
+	<script>
+	
+		var map =  L.map('map').setView([20, 34], 3);
+		
+		L.terminator().addTo(map)
+		
+		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
+
+		map.locate({setView: true, maxZoom: 16});
+		
+		var newYork    = moment.tz("America/New_York");
+		var Sydney = newYork.clone().tz("Europe/London");
+		var Melbourne     = newYork.clone().tz("Australia/Melbourne");
+		var Brisbane = newYork.clone().tz("Australia/Brisbane");
+		var Shanghai     = newYork.clone().tz("Asia/Shanghai");
+		var Slovenia = newYork.clone().tz("Europe/Slovenia");
+		var Belgium     = newYork.clone().tz("Europe/Belgium");
+		
+		L.marker([-33.830577, 151.219217]).addTo(map).bindPopup('Sydney <br>' + Sydney.format('LLL'));
+		L.marker([-37.808380, 144.966709]).addTo(map).bindPopup('Melbourne <br>' + Melbourne.format('LLL'));
+		L.marker([-27.465553, 153.019085]).addTo(map).bindPopup('Brisbane <br>' + Brisbane.format('LLL'));
+		L.marker([39.904211, 116.407395]).addTo(map).bindPopup('China <br>' + Shanghai.format('LLL'));
+		L.marker([46.343736, 14.174004]).addTo(map).bindPopup('Slovenia  <br>' + Slovenia.format('LLL'));
+		L.marker([50.880828, 4.697005]).addTo(map).bindPopup('Belgium  <br>' + Belgium.format('LLL'));
+	</script>
+</body>
+</html>
