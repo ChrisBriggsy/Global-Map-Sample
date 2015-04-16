@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leaflet mobile example</title>
+	<title>Global Map Sample</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -41,20 +41,20 @@
 
 		map.locate({setView: true, maxZoom: 16});
 		
-		var newYork    = moment.tz("America/New_York");
-		var Sydney = newYork.clone().tz("Europe/London");
-		var Melbourne     = newYork.clone().tz("Australia/Melbourne");
-		var Brisbane = newYork.clone().tz("Australia/Brisbane");
-		var Shanghai     = newYork.clone().tz("Asia/Shanghai");
-		var Slovenia = newYork.clone().tz("Europe/Slovenia");
-		var Belgium     = newYork.clone().tz("Europe/Belgium");
+
+		var Sydney = moment.tz("Australia/Sydney");
+		var Melbourne = moment.tz("Australia/Melbourne");
+		var Brisbane = moment.tz("Australia/Brisbane");
+		var Shanghai = moment.tz("Asia/Shanghai");
+		var Slovenia = moment.tz("Europe/Kaliningrad");
+		var Belgium = moment.tz("Europe/Kaliningrad");
 		
-		L.marker([-33.830577, 151.219217]).addTo(map).bindPopup('Sydney <br>' + Sydney.format('LLL'));
-		L.marker([-37.808380, 144.966709]).addTo(map).bindPopup('Melbourne <br>' + Melbourne.format('LLL'));
-		L.marker([-27.465553, 153.019085]).addTo(map).bindPopup('Brisbane <br>' + Brisbane.format('LLL'));
-		L.marker([39.904211, 116.407395]).addTo(map).bindPopup('China <br>' + Shanghai.format('LLL'));
-		L.marker([46.343736, 14.174004]).addTo(map).bindPopup('Slovenia  <br>' + Slovenia.format('LLL'));
-		L.marker([50.880828, 4.697005]).addTo(map).bindPopup('Belgium  <br>' + Belgium.format('LLL'));
+		L.marker([-33.830577, 151.219217]).addTo(map).bindPopup('<b>Sydney</b><br>' + Sydney.format('LLL'));
+		L.marker([-37.808380, 144.966709]).addTo(map).bindPopup('<b>Melbourne</b> <br>' + Melbourne.format('LLL'));
+		L.marker([-27.465553, 153.019085]).addTo(map).bindPopup('<b>Brisbane</b> <br>' + Brisbane.format('LLL'));
+		L.marker([39.904211, 116.407395]).addTo(map).bindPopup('<b>China </b><br>' + Shanghai.format('LLL'));
+		L.marker([46.343736, 14.174004]).addTo(map).bindPopup('<b>Slovenia </b> <br>' + Slovenia.format('LLL'));
+		L.marker([50.880828, 4.697005]).addTo(map).bindPopup('<b>Belgium  </b><br>' + Belgium.format('LLL'));
 	</script>
 </body>
 </html>
